@@ -1,0 +1,17 @@
+#wlkj {
+  min-width: 20vw;
+  max-width: 20vw;
+}
+#slider {
+    animation: slideInLeft 1s ease-in-out forwards;
+}
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

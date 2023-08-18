@@ -1,27 +1,181 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* Apply custom scrollbar styles to the body */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(30, 30, 30);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(10, 10, 10);
+  border-radius: 0.5em;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+body::-webkit-scrollbar-thumb {
+  transition: background-color 0.2s;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+#heightWidthAdjuster {
+  min-height: 50vh;
+  max-height: 50vh;
+  min-width: 70vw;
+  max-width: 70vw;
+}
+body {
+  height: 100vh;
+  color: #fff;
+  font-family: "ui-monospace", "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  background: radial-gradient(ellipse at bottom, #1b2735 0, #090a0f 100%);
+  animation: bgMove 10s linear infinite;
+}
+.w-alt {
+  max-width: 85vw;
+  min-width: 85vw;
+}
+.header {
+  animation: slideUp 0.5s ease-in;
+}
+.main {
+  background-color: rgb(10, 10, 10);
+}
+.border-1 {
+  border-width: 1px;
+}
+.mainBG {
+  background-color: rgb(20, 20, 20);
+}
+
+.headerIcon {
+  background-color: rgb(23, 23, 25);
+}
+.headerIconHCol {
+  background-color: #292929;
+}
+.lineL {
+  text-decoration: none;
+  color: #4a4a86;
+}
+.typewriter {
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+.reveal-text {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.reveal-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: text-reveal 3s forwards;
+}
+.top-maxx {
+  top: 120vh;
+}
+#achievement {
+  animation: slideInLeft 2s forwards;
+}
+@keyframes text-reveal {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: 100%;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  0%,
+  100% {
+    border-color: orange;
+  }
+  50% {
+    border-color: transparent;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0; /* Start invisible */
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1; /* End visible */
+    transform: translateX(0);
+  }
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes bgMove {
+  0% {
+    background-position: left bottom;
+  }
+  100% {
+    background-position: right bottom;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 1162px) {
+  #header {
+    font-size: 0.8em;
+    max-width: 85%;
+  }
 }
